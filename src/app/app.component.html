@@ -1,37 +1,75 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<!-- Navbar -->
+<section>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark pt-2 pb-2 nav-custom-bg">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-5" hrouterLink="/home" routerLinkActive="active">Company Logo</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="box-sizing:border-box" >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active m-1" aria-current="page" routerLink="/home" routerLinkActive="active">Home Page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link m-1" routerLink="/home" routerLinkActive="active">Authorized</a>
+          </li>
+        </ul>
+        <!-- <form>
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+        <!-- <form class="d-flex my-auto me-5">
+          <button class="btn btn-success" type="submit" >Sign in</button>
+        </form> -->
+        <ul class="navbar-nav d-flex my-auto me-5">
+          <li class="nav-item">
+            <a class="btn btn-success" routerLink="/login" routerLinkActive="active">Sign in</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+</section>
+<!-- Navbar -->
+<!-- Body content -->
+<section class="py-5">
+  
+  <!-- list of categories -->
+  <router-outlet></router-outlet>
+  <!-- list of categories -->
+
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center justify-content-left fixed-bottom">
+  <div class="container p-1">
+
+    <!-- section social media -->
+    <section class="mb-1">
+      <a class="btn btn-success m-1" href="Twitter">twitter</a>
+      <a class="btn btn-success m-1" href="insta">insta</a>
+      <a class="btn btn-success m-1" href="facebook">facebook</a>
+    </section>
+
+    <!-- section social media -->
+    
+    <!-- section kontakt -->
+    <section>
+      <p>email: jakub_golynski@o2.pl</p>
+      <p>komóra: 555-555-555</p>
+    </section>
+    <!-- section kontakt -->
   </div>
-</nav>
-<router-outlet></router-outlet>
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" routerLink="/home" routerLinkActive="active">Jakub Gołyński</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+<!-- Footer -->

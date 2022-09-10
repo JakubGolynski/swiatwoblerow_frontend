@@ -1,0 +1,9 @@
+.classPaddings { padding:100px; }
+
+a{
+    background-color: rgba(203, 232, 254, 0.8);
+}
+
+a:hover{
+    background-color: rgba(175, 211, 239, 0.8);
+}
