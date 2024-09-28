@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
@@ -17,7 +17,7 @@ export class AuthService {
   private loginUrl = "http://localhost:8080/login"
 
   login(user: User){
-    this.httpClient.post(this.loginUrl,{username: user.username, password: user.password});
+     return this.httpClient.post(this.loginUrl,{username: user.username, password: user.password});
   }
 
   errorHandler(error: HttpErrorResponse){
