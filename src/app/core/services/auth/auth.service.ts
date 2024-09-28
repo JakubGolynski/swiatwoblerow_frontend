@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
@@ -11,40 +11,13 @@ import { JwtService } from './jwt.service';
 })
 export class AuthService {
 
-  private currentUserSubject = new BehaviorSubject<User>({} as User);
-  private currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
+  constructor(private httpClient: HttpClient,
+              private jwtService: JwtService) {}
 
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
-  private isAuthenticated = this.isAuthenticatedSubject.asObservable();
+  private loginUrl = "http://localhost:8080/login"
 
-  private url = "http://localhost:8080/login"
-
-  constructor(
-    private jwtService:JwtService,
-    private http: HttpClient,
-    private router: Router
-    ) { }
-
-  login(user:User){
-    return this.http.post<User>(this.url,user)
-      .pipe(map(data => {
-        this.setAuthCredentials(data);
-        return data;
-      }));
-      // catchError(this.errorHandler)
-  }
-
-  setAuthCredentials(user: User){
-    const tokenUpdate = user.jwtToken == null ? '' : user.jwtToken;
-    this.jwtService.updateJwtToken(tokenUpdate);
-    this.currentUserSubject.next(user);
-    this.isAuthenticatedSubject.next(true);
-  }
-
-  emptyAuthCredentials(){
-    this.jwtService.deleteJwtToken();
-    this.currentUserSubject.next({} as User);
-    this.isAuthenticatedSubject.next(false);
+  login(user: User){
+    this.httpClient.post(this.loginUrl,{username: user.username, password: user.password});
   }
 
   errorHandler(error: HttpErrorResponse){
@@ -53,9 +26,5 @@ export class AuthService {
 
   getJwtToken(){
     return this.jwtService.getJwtToken();
-  }
-
-  redirectToLoginPage(){
-    this.router.navigate(['home']);
   }
 }
