@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryInterface } from '../core/models/category.model';
 import { CategoryService } from '../core/services/category/category.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

@@ -1,5 +1,6 @@
 import { AddressInterface } from "../address.model"
 import { RoleInterface } from "../role.model"
+import { UserInterface } from "../user.model"
 import { Address } from "./address"
 
 export class User{

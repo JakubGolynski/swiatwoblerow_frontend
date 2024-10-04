@@ -14,10 +14,10 @@ export class AuthService {
   constructor(private httpClient: HttpClient,
               private jwtService: JwtService) {}
 
-  private loginUrl = "http://localhost:8080/login"
+  private url = "http://localhost:8080/login"
 
-  login(user: User){
-     return this.httpClient.post(this.loginUrl,{username: user.username, password: user.password});
+  login(user: User): Observable<User>{
+     return this.httpClient.post<User>(this.url,{username: user.username, password: user.password});
   }
 
   errorHandler(error: HttpErrorResponse){
