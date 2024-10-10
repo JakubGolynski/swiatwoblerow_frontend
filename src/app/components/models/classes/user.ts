@@ -1,6 +1,4 @@
-import { AddressInterface } from "../address.model"
-import { RoleInterface } from "../role.model"
-import { UserInterface } from "../user.model"
+import { RoleInterface } from "../role.model";
 import { Address } from "./address"
 
 export class User{

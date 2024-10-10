@@ -18,4 +18,13 @@ export class JwtService {
   deleteJwtToken(){
     localStorage.removeItem("jwtToken");
   }
+
+  // isTokenExpired(): Boolean{
+  //   const token = localStorage.getItem("jwtToken");
+  //   if(token === null){
+  //     return false;
+  //   }else{
+      
+  //   }
+  // }
 }

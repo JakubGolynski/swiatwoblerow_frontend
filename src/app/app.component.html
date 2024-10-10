@@ -13,14 +13,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent" style="box-sizing:border-box">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active m-1" aria-current="page" routerLink="/home" routerLinkActive="active">Newest</a>
+            <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Newest</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <!-- <router-outlet name="categories"></router-outlet> -->
+              <a class="dropdown-item" href="/products?category=cars">Cars</a>
+              <a class="dropdown-item" href="/products?category=electronic_devices">Electronic Devices</a>
+              <a class="dropdown-item" href="/products?category=diy">DIY</a>
+              <a class="dropdown-item" href="/products?category=fashion">Fashion</a>
+              <a class="dropdown-item" href="/products?category=garden">Garden</a>
+              <a class="dropdown-item" href="/products?category=beauty">Beauty</a>
             </div>
           </li>
           <li>
@@ -51,24 +54,13 @@
 <section class="h-100 py-5 bg-dark color-white custom-shadow" style="flex:1;">
   <!-- list of categories -->
   <router-outlet></router-outlet>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <router-outlet name="categories"></router-outlet>
-    </div>
-  </li>
   <!-- list of categories --> 
 </section>
 <!-- Body content -->
 
 <!-- Footer -->
-
 <footer class="pb-3 pt-4 custom-bg">
     <p class="text-light text-center">&copy;2024 Jakub Golynski</p>
 </footer>
 </div>
-
-
 <!-- Footer -->

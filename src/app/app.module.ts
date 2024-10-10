@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module'; // CLI imports 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { AuthComponent } from './auth/auth.component';
-import { CountryComponent } from './core/services/country/country.component';
+import { HomeComponent } from './components/home/home.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { CategoryComponent } from './components/category/category.component';
+import { UserComponent } from './components/user/user.component';
+import { ProductComponent } from './components/product/product.component';
+import { AuthInterceptorService } from './components/services/auth/interceptor/auth-interceptor.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AuthComponent,
-    CountryComponent
+    CategoryComponent,
+    ProductComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +26,13 @@ import { CountryComponent } from './core/services/country/country.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,7 +11,7 @@ import { CategoryInterface } from '../models/category.model';
 })
 export class CategoryComponent implements OnInit {
 
-  private categories: CategoryInterface[] = [];
+  categories: CategoryInterface[] = [];
 
   private url = "http://localhost:8080/categories";
 
