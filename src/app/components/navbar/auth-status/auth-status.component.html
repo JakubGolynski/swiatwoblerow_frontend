@@ -1,0 +1,14 @@
+<ng-container
+  *ngIf="isLoggedIn; then loggedIn; else loggedOut">
+</ng-container>
+
+<ng-template #loggedIn>
+<img src="assets/images/user_pic.png" class="my-auto me-5"/>
+</ng-template>
+<ng-template #loggedOut>
+    <ul class="navbar-nav d-flex my-auto me-5">
+        <li class="nav-item">
+          <a class="btn btn-success" routerLink="/login" routerLinkActive="active">Sign in</a>
+        </li>
+      </ul>
+</ng-template>

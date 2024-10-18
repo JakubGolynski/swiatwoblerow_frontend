@@ -14,7 +14,6 @@ export class AuthComponent implements OnInit {
 
   user = new User(null, null, null, null, null, null, null, null,null,null);
   errorMessage = '';
-  //userResponse: UserInterface = new User(null, null, null, null, null, null, null, null,null,null);
   success = false
 
   constructor(private authService:AuthService,

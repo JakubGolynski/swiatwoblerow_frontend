@@ -19,6 +19,11 @@ export class JwtService {
     localStorage.removeItem("jwtToken");
   }
 
+  // validateToken(): boolean{
+  //   const token = this.getJwtToken();
+    
+  // }
+
   // isTokenExpired(): Boolean{
   //   const token = localStorage.getItem("jwtToken");
   //   if(token === null){

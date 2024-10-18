@@ -16,12 +16,18 @@ export class AuthService {
 
   private url = "http://localhost:8080/login";
 
+  private loggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(localStorage.getItem(`jwtToken`) === null ? false : true);
+
+  public isLoggedIn$: Observable<boolean> = this.loggedInSubject.asObservable();
+
   login(user: User): Observable<User>{
      return this.httpClient.post<User>(this.url,{username: user.username, password: user.password}).pipe(
       tap(response => {
         if(response.jwtToken !== null){
+          console.log("jwt");
           this.jwtService.updateJwtToken(response.jwtToken);
         }else{
+          console.log("err");
           throwError(() => new Error())
         }
       })
@@ -38,5 +44,9 @@ export class AuthService {
 
   updateJwtToken(token: string){
     this.jwtService.updateJwtToken(token);
+  }
+
+  public getLoggedInStatus(): Observable<boolean>{
+    return this.isLoggedIn$;
   }
 }

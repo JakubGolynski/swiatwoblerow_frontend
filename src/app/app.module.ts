@@ -10,6 +10,8 @@ import { CategoryComponent } from './components/category/category.component';
 import { UserComponent } from './components/user/user.component';
 import { ProductComponent } from './components/product/product.component';
 import { AuthInterceptorService } from './components/services/auth/interceptor/auth-interceptor.service';
+import { AuthStatusComponent } from './components/navbar/auth-status/auth-status.component';
+
 
 @NgModule({ declarations: [
         AppComponent,
@@ -17,11 +19,12 @@ import { AuthInterceptorService } from './components/services/auth/interceptor/a
         AuthComponent,
         CategoryComponent,
         ProductComponent,
-        UserComponent
+        UserComponent,
+        AuthStatusComponent
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
-        FormsModule,
-        AppRoutingModule], providers: [
+    FormsModule,
+    AppRoutingModule], providers: [
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptorService,
