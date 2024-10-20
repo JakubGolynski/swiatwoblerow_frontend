@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Address } from '../models/classes/address';
-import { User } from '../models/classes/user';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-auth',
@@ -12,9 +11,10 @@ import { catchError } from 'rxjs';
 })
 export class AuthComponent implements OnInit {
 
-  user = new User(null, null, null, null, null, null, null, null,null,null);
+  user: User = {id: null, username: null, password: null, firstName: null,
+    lastName: null, email:null, telephone:null, jwtToken:null, address: null, roles: null};
   errorMessage = '';
-  success = false
+  success = false;
 
   constructor(private authService:AuthService,
               private router: Router
@@ -34,7 +34,7 @@ export class AuthComponent implements OnInit {
         }
       },
       error: err => {
-        this.errorMessage = `Incorrect username or password. Please try again.`
+        this.errorMessage = `Incorrect username or password. Please try again.`;
       }
     })
   }

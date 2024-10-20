@@ -15,17 +15,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Newest</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/products?category=cars">Cars</a>
-              <a class="dropdown-item" href="/products?category=electronic_devices">Electronic Devices</a>
-              <a class="dropdown-item" href="/products?category=diy">DIY</a>
-              <a class="dropdown-item" href="/products?category=fashion">Fashion</a>
-              <a class="dropdown-item" href="/products?category=garden">Garden</a>
-              <a class="dropdown-item" href="/products?category=beauty">Beauty</a>
-            </div>
-          </li>
+          <app-product-nav></app-product-nav>
           <li>
             <a class="nav-link active m-1" aria-current="page" routerLink="/categories" routerLinkActive="active"></a>
           </li>
@@ -54,7 +44,10 @@
 <!-- Body content -->
 <section class="h-100 py-5 bg-dark color-white custom-shadow" style="flex:1;">
   <!-- list of categories -->
-  <router-outlet></router-outlet>
+  <app-home></app-home>
+  <section class="text-light">
+    <app-product></app-product>
+  </section>
   <!-- list of categories --> 
 </section>
 <!-- Body content -->

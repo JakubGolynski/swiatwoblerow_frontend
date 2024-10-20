@@ -2,9 +2,9 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angul
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
-import { User } from '../../models/classes/user';
 import {distinctUntilChanged, map, tap} from 'rxjs/operators';
 import { JwtService } from '../jwt/jwt.service';
+import { User } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +24,9 @@ export class AuthService {
      return this.httpClient.post<User>(this.url,{username: user.username, password: user.password}).pipe(
       tap(response => {
         if(response.jwtToken !== null){
-          console.log("jwt");
-          this.jwtService.updateJwtToken(response.jwtToken);
+          this.updateLoggedInStatus(response.jwtToken);
         }else{
-          console.log("err");
+          this.updateLoggedInStatus(``);
           throwError(() => new Error())
         }
       })
@@ -48,5 +47,15 @@ export class AuthService {
 
   public getLoggedInStatus(): Observable<boolean>{
     return this.isLoggedIn$;
+  }
+
+  public updateLoggedInStatus(token: string){
+    if(token !== ``){
+      this.jwtService.updateJwtToken(token);
+      this.loggedInSubject.next(true);
+    }else{
+      this.jwtService.deleteJwtToken();
+      this.loggedInSubject.next(false);
+    }
   }
 }

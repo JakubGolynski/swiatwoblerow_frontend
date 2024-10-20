@@ -11,6 +11,7 @@ import { UserComponent } from './components/user/user.component';
 import { ProductComponent } from './components/product/product.component';
 import { AuthInterceptorService } from './components/services/auth/interceptor/auth-interceptor.service';
 import { AuthStatusComponent } from './components/navbar/auth-status/auth-status.component';
+import { ProductNavComponent } from './components/navbar/product-nav/product-nav/product-nav.component';
 
 
 @NgModule({ declarations: [
@@ -20,7 +21,8 @@ import { AuthStatusComponent } from './components/navbar/auth-status/auth-status
         CategoryComponent,
         ProductComponent,
         UserComponent,
-        AuthStatusComponent
+        AuthStatusComponent,
+        ProductNavComponent,
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
     FormsModule,

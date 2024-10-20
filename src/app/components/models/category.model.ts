@@ -1,4 +1,4 @@
-export interface CategoryInterface{
-    id:number,
-    name:string
+export interface Category{
+    id:number | null,
+    name:string | null
 }

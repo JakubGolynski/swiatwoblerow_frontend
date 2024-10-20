@@ -1,1 +1,9 @@
-<p>product works!</p>
+<ul>
+    <li *ngFor="let product of products">
+      <ul>
+        <li>{{product.name}}</li>
+        <li>{{product.price}}</li>
+        <li>{{product.createdAt}}</li>
+      </ul>
+    </li>
+</ul>

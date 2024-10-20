@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../services/category/category.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CategoryInterface } from '../models/category.model';
+import { Category } from '../models/category.model';
 
 @Component({
   selector: 'app-category',
@@ -11,7 +11,7 @@ import { CategoryInterface } from '../models/category.model';
 })
 export class CategoryComponent implements OnInit {
 
-  categories: CategoryInterface[] = [];
+  categories: Category[] = [];
 
   private url = "http://localhost:8080/categories";
 

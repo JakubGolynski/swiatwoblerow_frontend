@@ -1,15 +1,15 @@
-import { AddressInterface } from "./address.model"
-import { RoleInterface } from "./role.model"
+import { Address } from "./address.model"
+import { Role } from "./role.model"
 
-export interface UserInterface{
-    id:number,
-    username:string,
-	password:string,
-	firstName:string,
-	lastName:string,
-	email:string,
-	telephone:string,
-	jwtToken:string,
-	address:AddressInterface,
-	roles:Array<RoleInterface>
+export interface User{
+    id:number | null,
+    username:string | null,
+	password:string | null,
+	firstName:string | null,
+	lastName:string | null,
+	email:string | null,
+	telephone:string | null,
+	jwtToken:string | null,
+	address:Address | null,
+	roles:Array<Role> | null
 }

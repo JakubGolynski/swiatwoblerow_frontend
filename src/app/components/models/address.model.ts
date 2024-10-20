@@ -1,9 +1,9 @@
-import { CountryInterface } from "./country.model";
+import { Country } from "./country.model";
 
-export interface AddressInterface{
-    id:number,
-    city:string,
-	street:string,
-	houseNumber:string,
-	country:CountryInterface
+export interface Address{
+    id:number | null,
+    city:string | null,
+	street:string | null,
+	houseNumber:string | null,
+	country:Country | null
 }
