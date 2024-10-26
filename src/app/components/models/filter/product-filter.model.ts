@@ -5,8 +5,8 @@ export interface ProductFilter{
 	ratingFrom?: number,
 	category?: string,
 	city?: string,
-	conditions?: Array<string>,
-	page?: number,
+	conditions: Array<string>,
+	page: number,
 	size?: number,
 	sort?: string
 }

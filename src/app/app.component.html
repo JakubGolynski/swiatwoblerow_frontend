@@ -1,8 +1,8 @@
-<div class="d-flex flex-column" style="min-height: 100vh;">
+<div class="d-flex flex-column shadow-lg" style="min-height: 100vh;background-color: #1B1B1E;">
 
 <!-- Navbar -->
-
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark py-3 shadow-lg" style="background-color: #1B1B1E;">
+<div class="container">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark py-3 me-5">
     <div class="container-fluid">
       <a class="navbar-brand ms-5" routerLink="/home" routerLinkActive="active">E-commerce App</a>
 
@@ -15,7 +15,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Newest</a>
           </li>
-          <app-product-nav></app-product-nav>
+          <app-product-nav routerLinkActive="active"></app-product-nav>
           <li>
             <a class="nav-link active m-1" aria-current="page" routerLink="/categories" routerLinkActive="active"></a>
           </li>
@@ -39,17 +39,20 @@
       </div>
     </div>
   </nav>
+</div>
 <!-- Navbar -->
 
 <!-- Body content -->
-<section class="h-100 py-5 bg-dark color-white custom-shadow" style="flex:1;">
+<div class="container-fluid h-100 py-5 bg-dark color-white custom-shadow" style="flex:1;">
+<!-- <section class="h-100 py-5 bg-dark color-white custom-shadow" style="flex:1;"> -->
   <!-- list of categories -->
-  <app-home></app-home>
-  <section class="text-light">
+   <router-outlet></router-outlet>
+  <!-- <section class="text-light">
     <app-product></app-product>
-  </section>
+  </section> -->
   <!-- list of categories --> 
-</section>
+<!-- </section> -->
+</div>
 <!-- Body content -->
 
 <!-- Footer -->

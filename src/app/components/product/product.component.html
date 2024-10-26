@@ -1,9 +1,130 @@
-<ul>
-    <li *ngFor="let product of products">
-      <ul>
-        <li>{{product.name}}</li>
-        <li>{{product.price}}</li>
-        <li>{{product.createdAt}}</li>
-      </ul>
-    </li>
-</ul>
+<div class="container">
+
+    <div class="row">
+      <div class="col">
+        <h1 class="display-5 text-center text-light mb-5">Discover new things</h1>
+      </div>
+        <form>
+          <div class="row mx-auto my-5">
+            <div class="col-6 mt-2">
+              <input type="text" class="form-control form-control-lg bg-dark text-light" placeholder="Search..." name="name" [(ngModel)]="productFilter.name">
+            </div>
+            <div class="col-3">
+              <button class="btn btn-primary btn-lg mt-2" type="submit" (click)="getProducts()">Search</button>
+            </div>
+          </div>
+        </form>
+    </div>
+    <div class="row my-4"></div>
+
+
+  <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-12 custom-bg custom-shadow m-2">
+        <div class="row mt-4 mb-3">
+          <div class="col text-light ms-3">
+            <p class="fs-4">Filtry</p>
+          </div>
+        </div>
+
+        <form class="mb-5">
+          <div class="form-group form-floating mt-3">
+            <input type="text" class="form-control custom-bg" id="floatingInput" placeholder="City..." name="city" [(ngModel)]="productFilter.city" (ngModelChange)="onInputChange()">
+            <label for="floatingInput">City...</label>
+          </div>
+        </form>
+
+        <form>
+          <label for="" class="form-label">Price</label>
+          <div class="row m-auto mb-5">
+            <div class="col-5">
+              <div class="form-group form-floating">
+                <input type="text" class="form-control custom-bg" id="floatingInput" placeholder="from" name="priceFrom" [(ngModel)]="productFilter.priceFrom" (ngModelChange)="onInputChange()">
+                <label for="floatingInput">from</label>
+              </div>
+            </div>
+
+            <div class="col-1 mt-3">
+              -
+            </div>
+
+            <div class="col-5">
+              <div class="form-group form-floating">
+                <input type="text" class="form-control custom-bg" id="floatingInput" placeholder="to" name="priceTo" [(ngModel)]="productFilter.priceTo" (ngModelChange)="onInputChange()">
+                <label for="floatingInput">to</label>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <form>
+
+          <!-- <div class="form-group form-floating mb-5"> 
+            <select name="conditions" id="floatingSelect" class="form-select custom-bg" [(ngModel)]="productFilter.conditions" (ngModelChange)="onInputChange()">
+              <option disabled selected>- choose -</option>
+              <option value="" *ngFor="let condition of conditions">{{condition.name | titlecase}}</option>
+            </select>
+            <label for="floatingSelect" class="form-label">Condition</label> 
+          
+           </div>  -->
+           <label for="" class="form-label">Condition</label>
+           <div *ngFor="let condition of conditions">
+            <div class="form-check mb-2 ms-3">
+              <input type="checkbox" class="form-check-input checkbox-lg" value="condition.name" (change)="onConditionChange(condition.name)" id="flexCheckDefault">
+              <label for="flexCheckDefault" class="form-check-label">{{condition.name | titlecase}}</label>
+            </div>
+           </div>
+        </form>
+
+      </div>
+
+
+    <div class="col-lg-8 col-md-6 col-sm-12 text-light custom-bg custom-shadow m-2 me-5">
+
+      <div class="row m-5">
+        <div class="col-6">
+          <form>
+            <label class="form-label">Sorting:</label>
+            <select class="form-select custom-bg" name="sort" [(ngModel)]="productFilter.sort" (ngModelChange)="onInputChange()">
+              <option value="name">name: alphabetically</option>
+              <option value="price">price: most expensive</option>
+              <option value="createdAt">time: newest products</option>
+              <option value="rating">rating: highest rating</option>
+            </select>
+          </form>
+        </div>
+        <div class="col"></div>
+        <div class="col">
+          <form class="mb-5">
+            <div class="form-group ">
+              <label class="form-label">Display</label>
+              <input type="text" class="form-control custom-bg" placeholder="20" name="size" [(ngModel)]="productFilter.size" (ngModelChange)="onInputChange()">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row text-light my-2" *ngFor="let product of products">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <img src="assets/images/product.jpg" class="img-fluid my-auto"/>
+        </div>
+        <div class="col">
+          <p>{{product.name}}</p>
+          <p>{{product.price}}</p>
+          <p>{{product.createdAt}}</p>
+        </div>
+      </div>
+
+      <div class="row m-5">
+        <div class="col">
+          <button *ngIf="productFilter.page>0" class="text-decoration-none btn btn-link custom-bg" (click)="getPreviousPage()">Previous Page</button>
+        </div>
+        <div class="col-2 text-center mx-auto">
+          <input type="text" class="form-control custom-bg text-center" placeholder="{{productFilter.page+1}}" name="page" [(ngModel)]="productFilter.page" (ngModelChange)="onInputChange()">
+        </div>
+        <div class="col text-end">
+          <button class="text-decoration-none btn btn-link custom-bg" (click)="getNextPage()">Next Page</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

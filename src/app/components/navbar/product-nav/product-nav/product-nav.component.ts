@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ProductService } from 'src/app/components/services/product/product.service';
 
 @Component({
   selector: 'app-product-nav',
@@ -8,10 +7,6 @@ import { ProductService } from 'src/app/components/services/product/product.serv
 })
 export class ProductNavComponent {
 
-  constructor(private productService: ProductService){}
+  constructor(){}
 
-
-  getProducts(){
-    this.productService.getProducts({});
-  }
 }

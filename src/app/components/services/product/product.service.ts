@@ -14,12 +14,22 @@ export class ProductService {
   private _url: string = `http://localhost:8080/products`; 
 
   getProducts(productFilter: ProductFilter): Observable<Product[]>{
-    return this.http.get<Product[]>(this._url);
-      // , {
-      //   options: {
-      //     params: new HttpParams().append()
-      //   }
-      // }
-  }
 
+    let productFilterMap = new Map<string,any>(Object.entries(productFilter));
+    let params = new HttpParams();
+
+    productFilterMap.forEach((value,key) => {
+      if(Array.isArray(value)){
+        value.forEach(name => {
+          if(name !== undefined && name !== null && name !== ``){
+            params = params.append(key,name);
+          }
+        })
+      }else if(value !== undefined && value !== null && value !== ``){
+        params = params.set(key,value);
+      }
+    });
+
+    return this.http.get<Product[]>(this._url, {params});
+  }
 }
