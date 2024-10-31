@@ -32,4 +32,8 @@ export class ProductService {
 
     return this.http.get<Product[]>(this._url, {params});
   }
+
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(this._url+`/${id}`);
+  }
 }

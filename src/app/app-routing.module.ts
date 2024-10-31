@@ -5,13 +5,15 @@ import { AuthComponent } from './components/auth/auth.component';
 import { CategoryComponent } from './components/category/category.component';
 import { AuthGuardService } from './components/services/auth/guard/auth-guard.service';
 import { ProductComponent } from './components/product/product.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
 
   { path: 'home', component: HomeComponent, },
   { path: 'login', component: AuthComponent},
   { path: 'products', component: ProductComponent},
+  { path: 'products/:id', component: ProductDetailComponent},
   { path: 'home', component: CategoryComponent, outlet: 'categories'},
   { path: '', redirectTo: 'home', pathMatch: 'full'}
 ];

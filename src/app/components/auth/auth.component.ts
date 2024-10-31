@@ -9,7 +9,7 @@ import { User } from '../models/user.model';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
 
   user: User = {id: null, username: null, password: null, firstName: null,
     lastName: null, email:null, telephone:null, jwtToken:null, address: null, roles: null};
@@ -20,8 +20,6 @@ export class AuthComponent implements OnInit {
               private router: Router
   ) { }
 
-  ngOnInit(): void {
-  }
 
   onSubmit(){
     this.authService.login(this.user).subscribe({

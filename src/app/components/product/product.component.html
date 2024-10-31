@@ -103,15 +103,18 @@
         </div>
       </div>
 
-      <div class="row text-light my-2" *ngFor="let product of products">
-        <div class="col-lg-3 col-md-6 col-sm-6">
-          <img src="assets/images/product.jpg" class="img-fluid my-auto"/>
-        </div>
-        <div class="col">
-          <p>{{product.name}}</p>
-          <p>{{product.price}}</p>
-          <p>{{product.createdAt}}</p>
-        </div>
+      <div class="row text-light my-2 custom-product" role="button" *ngFor="let product of products">
+        <!-- <a href="http://localhost:8080/products/{{product.id}}" class="text-decoration-none text-light"> -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <img src="assets/images/product.jpg" class="img-fluid my-auto"/>
+          </div>
+          <div class="col">
+            <a routerLink="/products/{{product.id}}" class="text-decoration-none text-light">{{product.name}}</a>
+            <p>{{product.price}}&dollar;</p>
+            <p>{{product.owner}}</p>
+            <p>Condition: {{product.condition?.name | titlecase}}</p>
+          </div>
+        <!-- </a> -->
       </div>
 
       <div class="row m-5">
@@ -119,7 +122,7 @@
           <button *ngIf="productFilter.page>0" class="text-decoration-none btn btn-link custom-bg" (click)="getPreviousPage()">Previous Page</button>
         </div>
         <div class="col-2 text-center mx-auto">
-          <input type="text" class="form-control custom-bg text-center" placeholder="{{productFilter.page+1}}" name="page" [(ngModel)]="productFilter.page" (ngModelChange)="onInputChange()">
+          <input type="text" class="form-control custom-bg text-center" placeholder="" name="page" [(ngModel)]="productFilter.page" (ngModelChange)="onInputChange()">
         </div>
         <div class="col text-end">
           <button class="text-decoration-none btn btn-link custom-bg" (click)="getNextPage()">Next Page</button>

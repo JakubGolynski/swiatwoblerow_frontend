@@ -86,4 +86,10 @@ export class ProductComponent implements OnInit {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  formatDate(date: Date | null): string{
+    if(date!== null)
+      return date.toLocaleDateString();
+    else
+      return '';
+  }
 }
