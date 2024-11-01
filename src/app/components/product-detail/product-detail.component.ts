@@ -15,6 +15,9 @@ export class ProductDetailComponent {
               private router: ActivatedRoute
   ){}
 
+  product: Product = {};
+  order: number = 1;
+
   ngOnInit(){
     let id: number;
     this.router.params.pipe(map(param => param['id'])).subscribe({
@@ -25,8 +28,6 @@ export class ProductDetailComponent {
       this.getProduct(this.product.id);
     }
   }
-
-  product: Product = {};
 
   getProduct(id: number){
     this.productService.getProduct(id).subscribe({
@@ -39,4 +40,19 @@ export class ProductDetailComponent {
   set id(id: number) {
     this.getProduct(id);
   }
+
+  addOrder(){
+    if(this.product.quantity !== undefined && this.product.quantity !== null){
+      if(this.order < this.product.quantity){
+        this.order = this.order+1;   
+      }
+    }
+  }
+
+  subtractOrder(){
+    if(this.order > 1){
+      this.order = this.order-1;   
+    }
+  }
+  
 }

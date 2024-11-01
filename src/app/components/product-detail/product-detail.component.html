@@ -1,18 +1,125 @@
 <div class="container">
     <div class="row">
+        <!-- left banner-->
         <div class="col-lg-8 col-md-6 col-sm-12 text-light custom-bg custom-shadow m-2 me-5">
+            <h4 class="m-3 mt-4">{{product.name}}</h4>
+            <div class="d-flex flex-row">
+                <div class="ms-3 me-2">
+                    {{product.rating}}
+                </div>
+                <div class="my-auto me-2">
+                    <img src="assets/images/stars.png" class="img-fluid my-auto"/>
+                </div>
+                <!-- number of ratings -->
+                <div>
+                    {{product.quantityRatings}} 
+                </div>
+                <div *ngIf="product.quantityRatings == 1; else ratings" class="mx-1">
+                    rating
+                </div>
+                <ng-template #ratings>
+                    ratings
+                </ng-template>
+                <!-- number of ratings -->
+
+
+                <!-- number of reviews -->
+                <div class="">
+                    {{product.quantityReviews}}
+                </div>
+
+                <div *ngIf="product.quantityReviews == 1; else reviews" class="mx-1">
+                    review
+                </div>
+
+                <ng-template #reviews>
+                    reviews
+                </ng-template>
+                <!-- number of reviews -->
+
+            </div>
           <div class="row mt-4 mb-3">
-            <div class="col text-light ms-3">
+            <div class="col text-light ms-3 mb-3">
                 <img src="assets/images/product.jpg" class="img-fluid my-auto"/>
             </div>
-
+            <div class="col">
+                <div class="row mb-3">
+                    Product condition is: {{product.condition?.name | lowercase}}
+                </div>
+                <div class="row mb-3">
+                    Product is from category: {{product.category?.name}}
+                </div>
+            </div>
           </div>
         </div>
+        <!-- left banner-->
+
+        <!-- right banner-->
         <div class="col-lg-3 col-md-4 col-sm-12 custom-bg custom-shadow m-2">
-            <div class="text-center">from {{product.owner}}</div>
-            <div class="text-center">condition{{product.condition?.name}}</div>
-            <div class="text-center">condition{{product.category?.name}}</div>
+            <p class="m-4 h5">from {{product.owner}}</p>
+            
+            <form class="mx-3">
+                <label class="form-label"><small>pieces</small></label>
+                <div class="input-group mb-5">
+                    <button class="btn btn-outline-secondary p-2" onclick="subtractOrder()">
+                        <p class="custom-lg m-auto">&minus;</p>
+                    </button>
+                    <span class="input-group-text btn-outline-secondary custom-bg">{{order}}</span>
+                    <button class="btn btn-outline-secondary p-2" onclick="addOrder()">
+                        <p class="custom-lg m-auto">&plus;</p>
+                    </button>
+                    <p class="my-auto ms-2 text-start">out of {{product.quantity}}</p>
+                </div>
+                <div class="row">
+                    <div class="col">
+                    </div>
+                    <div class="mb-3 me-3">
+                        <button class="btn btn-primary container-fluid">Add to cart</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary container-fluid">Add to cart and pay</button>
+                    </div>
+                </div>
+            </form>
+
+
         </div>
+        <!-- right banner-->
+
+        <!-- left banner -->
+        <div class="col-lg-8 col-md-6 col-sm-12 text-light custom-bg custom-shadow m-2 me-5">
+            <div class="row mt-4 mb-3">
+              <div class="col text-light ms-3">
+                <p class="h5">Description</p>
+                <p>{{product.message}}</p>
+              </div>
+  
+            </div>
+        </div>
+        <!-- left banner -->
+
+        <!-- right banner -->
+        <div class="col-lg-3 col-md-4 col-sm-12 custom-bg custom-shadow m-2">
+            <p class="text-center m-3 h3">ADVERT</p>
+            <p class="text-center m-3 h3">ADVERT</p>
+        </div>
+        <!-- right banner -->
+
+        <!-- left banner -->
+        <div class="col-lg-8 col-md-6 col-sm-12 text-light custom-bg custom-shadow m-2 me-5">
+            <div class="row mt-4 mb-3">
+                <div class="col text-light ms-3">
+                  <p class="h5">Reviews</p>
+                  <p>review component to build</p>
+                </div>
+            </div>
+        </div>
+        <!-- left banner -->
+
+
+          <!-- <div class="col-lg-3 col-md-4 col-sm-12 custom-bg custom-shadow m-2">
+              <p class="text-center m-3 h3">ADVERT</p>
+          </div> -->
     </div>
 </div>
 

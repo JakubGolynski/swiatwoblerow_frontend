@@ -14,3 +14,6 @@ a:hover {
 .custom-product :hover{
     background-color: #09090d;
 }
+.custom-lg{
+    transform: scale(1.5);
+}
