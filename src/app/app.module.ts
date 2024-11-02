@@ -13,6 +13,7 @@ import { AuthInterceptorService } from './components/services/auth/interceptor/a
 import { AuthStatusComponent } from './components/navbar/auth-status/auth-status.component';
 import { ProductNavComponent } from './components/navbar/product-nav/product-nav/product-nav.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ReviewComponent } from './components/review/review.component';
 
 
 @NgModule({ declarations: [
@@ -25,6 +26,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
         AuthStatusComponent,
         ProductNavComponent,
         ProductDetailComponent,
+        ReviewComponent,
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
     FormsModule,

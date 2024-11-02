@@ -2,9 +2,18 @@
     <div class="row">
         <!-- left banner-->
         <div class="col-lg-8 col-md-6 col-sm-12 text-light custom-bg custom-shadow m-2 me-5">
-            <h4 class="m-3 mt-4">{{product.name}}</h4>
             <div class="d-flex flex-row">
-                <div class="ms-3 me-2">
+                <div class="my-3 mt-4 container">
+                    <h4>{{product.name}}</h4>
+                </div>
+                <div class="m-3 mt-4">
+                    <button class="text-decoration-none img-btn" type="submit">
+                        <img src="assets/images/share.svg"  class="custom-lg">
+                    </button>
+                </div>
+            </div>
+            <div class="d-flex flex-row">
+                <div class="ms-4 me-2">
                     {{product.rating}}
                 </div>
                 <div class="my-auto me-2">
@@ -37,18 +46,14 @@
                 </ng-template>
                 <!-- number of reviews -->
 
+                <!-- <img src="assets/images/share.svg" class="bi bi-share float-end">
+                <div class="float-end">
+                    <img src="assets/images/share.svg" class="bi bi-share float-end">
+                </div> -->
             </div>
-          <div class="row mt-4 mb-3">
-            <div class="col text-light ms-3 mb-3">
-                <img src="assets/images/product.jpg" class="img-fluid my-auto"/>
-            </div>
-            <div class="col">
-                <div class="row mb-3">
-                    Product condition is: {{product.condition?.name | lowercase}}
-                </div>
-                <div class="row mb-3">
-                    Product is from category: {{product.category?.name}}
-                </div>
+          <div class="row mt-4 mb-4">
+            <div class="col text-light text-center mb-3">
+                <img src="assets/images/product.jpg" class="img-fluid m-auto custom-img"/>
             </div>
           </div>
         </div>
@@ -74,11 +79,19 @@
                 <div class="row">
                     <div class="col">
                     </div>
-                    <div class="mb-3 me-3">
+                    <div class="mb-3">
                         <button class="btn btn-primary container-fluid">Add to cart</button>
                     </div>
-                    <div>
+                    <div class="mb-5">
                         <button class="btn btn-primary container-fluid">Add to cart and pay</button>
+                    </div>
+                    <div>
+                        <div class="row mb-4 text-light">
+                            Product condition is: {{product.condition?.name | lowercase}}
+                        </div>
+                        <div class="row mb-3">
+                            Product is from category: {{product.category?.name}}
+                        </div>
                     </div>
                 </div>
             </form>
@@ -112,6 +125,7 @@
                 <div class="col text-light ms-3">
                   <p class="h5">Reviews</p>
                   <p>review component to build</p>
+                  <app-review></app-review>
                 </div>
             </div>
         </div>
