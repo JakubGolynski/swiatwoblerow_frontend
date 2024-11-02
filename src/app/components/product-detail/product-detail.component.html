@@ -24,11 +24,11 @@
 
 
                 <!-- number of reviews -->
-                <div class="">
+                <div class="me-1">
                     {{product.quantityReviews}}
                 </div>
 
-                <div *ngIf="product.quantityReviews == 1; else reviews" class="mx-1">
+                <div *ngIf="product.quantityReviews == 1; else reviews">
                     review
                 </div>
 
@@ -61,14 +61,15 @@
             <form class="mx-3">
                 <label class="form-label"><small>pieces</small></label>
                 <div class="input-group mb-5">
-                    <button class="btn btn-outline-secondary p-2" onclick="subtractOrder()">
+                    <button class="btn btn-outline-secondary px-3 py-2" (click)="subtractOrder()">
                         <p class="custom-lg m-auto">&minus;</p>
                     </button>
-                    <span class="input-group-text btn-outline-secondary custom-bg">{{order}}</span>
-                    <button class="btn btn-outline-secondary p-2" onclick="addOrder()">
+                    <input type="number" [(ngModel)]="order" #localOrder="ngModel" min="1" max={{product.quantity}} name="order" class="form-control mx-0 p-0 m-0 text-center btn-outline-secondary custom-bg">
+                    <button class="btn btn-outline-secondary px-3 py-2" (click)="addOrder()">
                         <p class="custom-lg m-auto">&plus;</p>
                     </button>
                     <p class="my-auto ms-2 text-start">out of {{product.quantity}}</p>
+                    <small class="text-danger" *ngIf="localOrder.hasError('min') || localOrder.hasError('max')">enter from 1 to {{product.quantity}}</small>
                 </div>
                 <div class="row">
                     <div class="col">

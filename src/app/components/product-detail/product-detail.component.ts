@@ -21,12 +21,14 @@ export class ProductDetailComponent {
   ngOnInit(){
     let id: number;
     this.router.params.pipe(map(param => param['id'])).subscribe({
-      next: id => this.product.id = id,
+      next: id => {
+        this.product.id = id;
+        if(this.product.id !== undefined && this.product.id !== null){
+          this.getProduct(this.product.id);
+        }
+      },
       error: err => console.log(err)
     });
-    if(this.product.id !== undefined && this.product.id !== null){
-      this.getProduct(this.product.id);
-    }
   }
 
   getProduct(id: number){
@@ -54,5 +56,5 @@ export class ProductDetailComponent {
       this.order = this.order-1;   
     }
   }
-  
+ 
 }
