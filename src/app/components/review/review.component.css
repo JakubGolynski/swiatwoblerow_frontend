@@ -1,0 +1,9 @@
+.img-btn{
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+}
+.custom-lg{
+    transform: scale(1.5);
+}

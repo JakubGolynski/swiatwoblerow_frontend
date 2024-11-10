@@ -12,14 +12,29 @@
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent" style="box-sizing:border-box">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Newest</a>
-          </li>
-          <app-product-nav routerLinkActive="active"></app-product-nav>
+          </li> -->
+          <app-product-nav></app-product-nav>
           <li>
             <a class="nav-link active m-1" aria-current="page" routerLink="/categories" routerLinkActive="active"></a>
           </li>
         </ul>
+
+        <!-- <div class="form-check mb-2 ms-3">
+          <input type="checkbox" class="form-check-input checkbox-lg" value="NEW" (change)="onConditionChange('NEW')" id="flexCheckDefault">
+          <label for="flexCheckDefault" class="form-check-label">New</label>
+        </div>
+        <div class="form-check mb-2 ms-3">
+          <input type="checkbox" class="form-check-input checkbox-lg" value="DAMAGED" (change)="onConditionChange('DAMAGED')" id="flexCheckDefault">
+          <label for="flexCheckDefault" class="form-check-label">Damaged</label>
+        </div>
+        <div class="form-check mb-2 ms-3">
+          <input type="checkbox" class="form-check-input checkbox-lg" value="USED" (change)="onConditionChange('USED')" id="flexCheckDefault">
+          <label for="flexCheckDefault" class="form-check-label">Used</label>
+        </div> -->
+
+
         <!-- <ul class="navbar-nav d-flex justify-content-center">
           <form class="row my-auto d-flex justify-content-center">
             <div class="col d-flex justify-content-center">

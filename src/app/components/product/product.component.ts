@@ -6,6 +6,7 @@ import { CountryService } from '../services/country/country.service';
 import { Country } from '../models/country.model';
 import { Condition } from '../models/condition.model';
 import { ConditionService } from '../services/condition/condition.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -16,7 +17,8 @@ export class ProductComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private countryService: CountryService,
-              private conditionService: ConditionService
+              private conditionService: ConditionService,
+              private route: ActivatedRoute
   ) { }
 
   products: Product[] = [];
@@ -25,7 +27,17 @@ export class ProductComponent implements OnInit {
   conditions: Condition[] = [];
 
   ngOnInit(): void {
-    this.getProducts();
+    this.route.queryParamMap.subscribe({
+      next: parameters =>{
+        console.log('category'+ parameters.get(`category`));
+        if(parameters.get('category')){
+          this.productFilter.category = parameters.get(`category`);
+        }else{
+          this.productFilter.category = undefined;
+        }
+        this.getProducts();
+      }
+    })
     this.getCountries();
     this.getConditions();
   }

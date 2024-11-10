@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { UserService } from '../services/user/user.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrl: './user.component.css'
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
 
-  constructor() { }
+  constructor(private userService: UserService){}
 
-  ngOnInit(): void {
+  user: User = {} as User;
+
+  ngOnInit(){
+    this.getUserDetail();
   }
 
+  getUserDetail() {
+      this.userService.getUserDetail().subscribe({
+      next: response => {
+        if(response.body){
+          this.user = response.body;
+        }else{
+          console.log("Something went wrong user detail fetching");
+        }
+      },
+      error: err => console.log(err)
+    });
+  }
 }

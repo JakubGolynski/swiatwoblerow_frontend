@@ -1,12 +1,12 @@
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item" routerLink="/products">All</a>
-      <a class="dropdown-item" href="/products?category=cars">Cars</a>
-      <a class="dropdown-item" href="/products?category=electronic_devices">Electronic Devices</a>
-      <a class="dropdown-item" href="/products?category=diy">DIY</a>
-      <a class="dropdown-item" href="/products?category=fashion">Fashion</a>
-      <a class="dropdown-item" href="/products?category=garden">Garden</a>
-      <a class="dropdown-item" href="/products?category=beauty">Beauty</a>
+      <a class="dropdown-item" [routerLink]="['/products']">All</a>
+      <a class="dropdown-item" [routerLink]="['/products']" [queryParams]="{category: 'cars'}">Cars</a>
+      <a class="dropdown-item" [routerLink]="['/products']" [queryParams]="{category: 'electronic_devices'}">Electronic Devices</a>
+      <a class="dropdown-item" [routerLink]="['/products']" [queryParams]="{category: 'diy'}">DIY</a>
+      <a class="dropdown-item" [routerLink]="['/products']" [queryParams]="{category: 'fashion'}">Fashion</a>
+      <a class="dropdown-item" [routerLink]="['/products']" [queryParams]="{category: 'garden'}">Garden</a>
+      <a class="dropdown-item" [routerLink]="['/products']" [queryParams]="{category: 'beauty'}">Beauty</a>
     </div>
   </li>

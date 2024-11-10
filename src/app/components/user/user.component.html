@@ -1,1 +1,67 @@
-<p>user works!</p>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 custom-bg custom-shadow">
+            <div class="row">
+                <div class="col-6">
+                    <p class="h5 m-3">username: </p>
+                </div>
+                <div class="col-5">
+                    <p class="h5 m-3">{{user.username}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p class="h5 m-3">first name: </p>
+                </div>
+                <div class="col-5">
+                    <p class="h5 m-3">{{user.firstName}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p class="h5 m-3">last name: </p>
+                </div>
+                <div class="col-5">
+                    <p class="h5 m-3">{{user.lastName}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p class="h5 m-3">email: </p>
+                </div>
+                <div class="col-5">
+                    <p class="h5 m-3">{{user.email}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p class="h5 m-3">telephone: </p>
+                </div>
+                <div class="col-5">
+                    <p class="h5 m-3">{{user.telephone}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p class="h5 m-3">address: </p>
+                </div>
+                <div class="col-5">
+                    <p class="h5 m-3">country: {{user.address?.country?.name || 'no country provided'}}</p>
+                    <p class="h5 m-3">city: {{user.address?.city || 'no city provided'}}</p>
+                    <p class="h5 m-3">street: {{user.address?.street || 'no street provided'}}</p>
+                    <p class="h5 m-3">house number: {{user.address?.houseNumber || 'no house number provided'}}</p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <p class="h5 m-3">role: </p>
+                </div>
+                <div class="col-5">
+                    <p class="h5 m-3">{{(user.role?.name?.substring(5)| lowercase) || 'no role provided'}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>

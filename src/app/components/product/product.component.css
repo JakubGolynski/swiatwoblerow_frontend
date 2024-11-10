@@ -5,12 +5,14 @@
 .custom-shadow {
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
-a:hover {
-    color:gray;
-}
 .checkbox-lg{
     transform: scale(1.5);
 }
 .custom-product :hover{
-    background-color: #09090d;
+    background-color: #343a40;
+}
+.no-decoration {
+    text-decoration: none;
+    /* color: inherit; */
+    /* margin: 20px;  */
 }

@@ -86,7 +86,7 @@
             <label class="form-label">Sorting:</label>
             <select class="form-select custom-bg" name="sort" [(ngModel)]="productFilter.sort" (ngModelChange)="onInputChange()">
               <option value="name">name: alphabetically</option>
-              <option value="price">price: most expensive</option>
+              <option value="price">price: cheapest</option>
               <option value="createdAt">time: newest products</option>
               <option value="rating">rating: highest rating</option>
             </select>
@@ -103,18 +103,28 @@
         </div>
       </div>
 
-      <div class="row text-light my-2 custom-product" role="button" *ngFor="let product of products">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <img src="assets/images/product.jpg" class="img-fluid my-auto"/>
+      <div class="custom-product" *ngFor="let product of products">
+        <a class="no-decoration" routerLink="/products/{{product.id}}">
+          <div class="row text-light custom-product border-bottom border-secondary" role="button">
+            <!-- <a routerLink="/products/{{product.id}}"> -->
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <img src="assets/images/product.jpg" class="img-fluid my-3"/>
+              </div>
+              <div class="col">
+                <p class="h6 mt-3">{{product.name}}</p>
+                <p class="mt-3 text-white-50"><small>{{product.message}}</small></p>
+              </div>
+              <div class="col border-start border-secondary my-3">
+                <p><small>from</small> {{product.owner}}</p>
+                <p class="h4 color-primary">{{product.price}}&dollar;</p>
+                <p class="mt-3"><small>condition</small> {{product.condition?.name | titlecase}}</p>
+              </div>
+
           </div>
-          <div class="col">
-            <a routerLink="/products/{{product.id}}" class="text-decoration-none text-light">{{product.name}}</a>
-            <p>{{product.price}}&dollar;</p>
-            <p>{{product.owner}}</p>
-            <p>Condition: {{product.condition?.name | titlecase}}</p>
-          </div>
-        <!-- </a> -->
+        </a>
+        <!-- <hr class="m-0"> -->
       </div>
+
 
       <div class="row m-5">
         <div class="col">

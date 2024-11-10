@@ -3,7 +3,7 @@ export interface ProductFilter{
 	priceFrom?: number,
 	priceTo?: number,
 	ratingFrom?: number,
-	category?: string,
+	category?: string | null,
 	city?: string,
 	conditions: Array<string>,
 	page: number,

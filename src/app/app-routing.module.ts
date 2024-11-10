@@ -6,15 +6,17 @@ import { CategoryComponent } from './components/category/category.component';
 import { AuthGuardService } from './components/services/auth/guard/auth-guard.service';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { UserComponent } from './components/user/user.component';
 
 
 export const routes: Routes = [
 
   { path: 'home', component: HomeComponent, },
   { path: 'login', component: AuthComponent},
-  { path: 'products', component: ProductComponent},
   { path: 'products/:id', component: ProductDetailComponent},
+  { path: 'products', component: ProductComponent},
   { path: 'home', component: CategoryComponent, outlet: 'categories'},
+  { path: 'customer/detail', component: UserComponent, canActivate: [AuthGuardService] },
   { path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 @NgModule({

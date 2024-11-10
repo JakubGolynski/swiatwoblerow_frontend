@@ -1,13 +1,21 @@
-<p class="h5">Reviews</p>
-<div class="row text-light">
-    <div class="col text-light" *ngFor="let review of reviews">
-        <p>from {{review.reviewOwner}}</p>
-        <p>created at {{review.createdAt}}</p>
-        <p>mess {{review.message}}</p>
-        <p> thumbsup {{review.quantityThumbsUp}}</p>
-        <p>thumbsdown {{review.quantityThumbsDown}}</p>
-    </div>
-    {{productId}}
+<p class="h5 mb-5" *ngIf="existsReviews() else noReviews">Reviews</p>
+<ng-template #noReviews>
+    <p class="h5 mb-5">Yet No Reviews</p>
+</ng-template>
+<div class="row text-light bg-secondary me-3 ms-1 rounded-3 shadow-lg mb-3" *ngFor="let review of reviews">
+        <small>{{review.reviewOwner}} at {{ review.createdAt | date:"MMM dd, yyyy 'at' hh:mm a" }}</small>
+        <p class="h6 m-2">{{review.message}}</p>
+        <p>
+            <button class="text-decoration-none img-btn" type="submit">
+                <img src="assets/images/hand-thumbs-up.svg"  class="custom-lg">
+            </button>
+            {{review.quantityThumbsUp}}
+            <button class="text-decoration-none img-btn" type="submit">
+                <img src="assets/images/hand-thumbs-down.svg"  class="custom-lg">
+            </button>
+            {{review.quantityThumbsDown}}
+        </p>
 </div>
-{{productId}}
-sd
+<div class="row text-center me-3 ms-1" *ngIf="existsMoreReviews()">
+    <button class="btn btn-outline-secondary" (click)="getMoreReviews()">See more</button>
+</div>

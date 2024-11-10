@@ -3,8 +3,20 @@
 </ng-container>
 
 <ng-template #loggedIn>
-<img src="assets/images/user_pic.png" class="my-auto me-5"/>
+
+<div class="dropdown">
+  <button class="img-btn" type="button" data-bs-toggle="dropdown">
+    <img src="assets/images/user_pic.png" class="my-auto"/>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" routerLink="/customer/detail">Settings</a></li>
+    <hr>
+    <li><button class="dropdown-item" (click)="logout()">Logout</button></li>
+  </ul>
+</div>
+
 </ng-template>
+
 <ng-template #loggedOut>
     <ul class="navbar-nav d-flex my-auto me-5">
         <li class="nav-item">

@@ -56,5 +56,14 @@ export class ProductDetailComponent {
       this.order = this.order-1;   
     }
   }
+
+  existReviews(): boolean{
+    if(this.product.quantityReviews !== undefined && this.product.quantityReviews !== null){
+      if(this.product.quantityReviews>0){
+        return true;
+      }
+    }
+    return false;
+  }
  
 }

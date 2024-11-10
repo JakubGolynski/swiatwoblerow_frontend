@@ -2,3 +2,9 @@ img{
     height: 40px;
     width:auto;
 }
+.img-btn{
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+}

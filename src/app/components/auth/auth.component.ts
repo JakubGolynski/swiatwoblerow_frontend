@@ -11,8 +11,7 @@ import { User } from '../models/user.model';
 })
 export class AuthComponent {
 
-  user: User = {id: null, username: null, password: null, firstName: null,
-    lastName: null, email:null, telephone:null, jwtToken:null, address: null, roles: null};
+  user: User = {} as User;
   errorMessage = '';
   success = false;
 

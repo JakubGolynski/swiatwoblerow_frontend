@@ -1,10 +1,11 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, Subject, throwError } from 'rxjs';
 import {distinctUntilChanged, map, tap} from 'rxjs/operators';
 import { JwtService } from '../jwt/jwt.service';
 import { User } from '../../models/user.model';
+import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +58,10 @@ export class AuthService {
       this.jwtService.deleteJwtToken();
       this.loggedInSubject.next(false);
     }
+  }
+
+  logout(){
+    this.jwtService.deleteJwtToken();
+    this.loggedInSubject.next(false);
   }
 }

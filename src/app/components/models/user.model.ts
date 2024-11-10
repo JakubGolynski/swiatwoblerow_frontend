@@ -2,7 +2,7 @@ import { Address } from "./address.model"
 import { Role } from "./role.model"
 
 export interface User{
-    id:number | null,
+    id:number,
     username:string | null,
 	password:string | null,
 	firstName:string | null,
@@ -11,5 +11,5 @@ export interface User{
 	telephone:string | null,
 	jwtToken:string | null,
 	address:Address | null,
-	roles:Array<Role> | null
+	role:Role | null
 }

@@ -1,25 +1,37 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../../models/classes/user';
-import { UserInterface } from '../../models/user.model';
-import {distinctUntilChanged} from 'rxjs/operators';
+import { catchError, EMPTY, filter, map, Observable, tap, throwError } from 'rxjs';
+import { User } from '../../models/user.model';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private url = "http://localhost:8080/customers"
+  private _userDetailUrl: string = `http://localhost:8080/customer/detail`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private authService: AuthService,
+              private router: Router
+  ) { }
 
-  getUsers(): Observable<UserInterface[]>{
-    return this.http.get<UserInterface[]>(this.url);
+  getUserDetail(): Observable<HttpResponse<User>>{
+    console.log("QQQQ");
+    return this.http.get<User>(this._userDetailUrl,{ observe: 'response' }).pipe(
+      catchError(error => this.handleError(error)),
+      filter(response => response.status !== 401 && response.body !== null)
+    );
   }
 
-  getUser(id:number): Observable<UserInterface>{
-    return this.http.get<UserInterface>(this.url+"/"+id);
+  private handleError(error: HttpErrorResponse){
+    if(error.status === 401 || error.status === 403){
+      this.authService.logout();
+      this.router.navigate(['/login']);
+      return EMPTY;
+    }
+    return throwError(() => new Error(`Server error occurs`));
   }
   
 }
