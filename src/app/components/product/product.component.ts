@@ -29,7 +29,6 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParamMap.subscribe({
       next: parameters =>{
-        console.log('category'+ parameters.get(`category`));
         if(parameters.get('category')){
           this.productFilter.category = parameters.get(`category`);
         }else{

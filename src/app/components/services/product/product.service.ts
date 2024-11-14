@@ -11,7 +11,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `http://localhost:8080/products`; 
+  private _url: string = `https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/products`; 
 
   getProducts(productFilter: ProductFilter): Observable<Product[]>{
 

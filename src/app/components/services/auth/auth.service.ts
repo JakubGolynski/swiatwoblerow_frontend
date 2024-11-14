@@ -15,7 +15,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient,
               private jwtService: JwtService) {}
 
-  private url = "http://localhost:8080/login";
+  private url = "https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/login";
 
   private loggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(localStorage.getItem(`jwtToken`) === null ? false : true);
 

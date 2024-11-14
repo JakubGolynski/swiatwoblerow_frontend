@@ -10,7 +10,7 @@ export class ConditionService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `http://localhost:8080/conditions`;
+  private _url: string = `https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/conditions`;
 
   getConditions(): Observable<Condition[]>{
     return this.http.get<Condition[]>(this._url);

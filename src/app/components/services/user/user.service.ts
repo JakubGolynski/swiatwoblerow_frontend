@@ -10,7 +10,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class UserService {
 
-  private _userDetailUrl: string = `http://localhost:8080/customer/detail`;
+  private _userDetailUrl: string = `https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/customer/detail`;
 
   constructor(private http: HttpClient,
               private authService: AuthService,

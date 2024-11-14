@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class CategoryService {
 
-  private url = "http://localhost:8080/categories"
+  private url = "https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/categories"
 
   constructor(private http: HttpClient) { }
 

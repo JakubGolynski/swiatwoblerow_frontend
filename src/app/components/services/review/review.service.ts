@@ -22,7 +22,7 @@ export class ReviewService {
       params = params.set(`size`, reviewFilter.size);
     }
 
-    let _url: string = `http://localhost:8080/products/${productId}/reviews`;
+    let _url: string = `https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/products/${productId}/reviews`;
 
     return this.http.get<Review[]>(_url,{params});
   }

@@ -10,7 +10,7 @@ export class CountryService {
 
   countries: Country[] = [];
 
-  private url = "http://localhost:8080/countries";
+  private url = "https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/countries";
 
   constructor(private httpClient: HttpClient) { }
 
