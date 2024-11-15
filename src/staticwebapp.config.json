@@ -3,7 +3,7 @@
       {
         "route": "/*",
         "serve": "/index.html",
-        "statusCode": 301
+        "statusCode": 200
       }
     ]
   }
