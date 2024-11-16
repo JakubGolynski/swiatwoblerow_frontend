@@ -18,7 +18,6 @@ export class UserService {
   ) { }
 
   getUserDetail(): Observable<HttpResponse<User>>{
-    console.log("QQQQ");
     return this.http.get<User>(this._userDetailUrl,{ observe: 'response' }).pipe(
       catchError(error => this.handleError(error)),
       filter(response => response.status !== 401 && response.body !== null)
