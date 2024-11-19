@@ -4,10 +4,9 @@ import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-auth-status',
-    templateUrl: './auth-status.component.html',
-    styleUrl: './auth-status.component.css',
-    standalone: false
+  selector: 'app-auth-status',
+  templateUrl: './auth-status.component.html',
+  styleUrl: './auth-status.component.css'
 })
 export class AuthStatusComponent implements OnInit{
 

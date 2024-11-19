@@ -5,15 +5,13 @@ import { ReviewFilter } from '../models/filter/review-filter.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-review',
-    templateUrl: './review.component.html',
-    styleUrl: './review.component.css',
-    standalone: false
+  selector: 'app-review',
+  templateUrl: './review.component.html',
+  styleUrl: './review.component.css'
 })
 export class ReviewComponent implements OnChanges{
 
-  constructor(private reviewService: ReviewService,
-              private router: ActivatedRoute,
+  constructor(private reviewService: ReviewService
   ){}
 
 

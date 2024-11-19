@@ -5,10 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 
 @Component({
-    selector: 'app-product-detail',
-    templateUrl: './product-detail.component.html',
-    styleUrl: './product-detail.component.css',
-    standalone: false
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrl: './product-detail.component.css'
 })
 export class ProductDetailComponent {
 

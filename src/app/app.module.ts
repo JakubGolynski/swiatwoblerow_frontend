@@ -1,4 +1,4 @@
-import { NgModule, provideAppInitializer } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
@@ -33,7 +33,9 @@ import { UserComponent } from './components/user/user.component';
     bootstrap: [AppComponent], imports: [BrowserModule,
     FormsModule,
     AppRoutingModule], providers: [
-        provideAppInitializer((() => localStorageInitializer)()),
+        {
+            provide: APP_INITIALIZER, useFactory: () => localStorageInitializer, multi: true,
+        },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptorService,
