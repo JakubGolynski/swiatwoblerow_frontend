@@ -5,7 +5,6 @@ import { BehaviorSubject, catchError, Observable, Subject, throwError } from 'rx
 import {distinctUntilChanged, map, tap} from 'rxjs/operators';
 import { JwtService } from '../jwt/jwt.service';
 import { User } from '../../models/user.model';
-import { jwtDecode } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'

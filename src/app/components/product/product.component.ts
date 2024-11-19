@@ -9,9 +9,10 @@ import { ConditionService } from '../services/condition/condition.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+    selector: 'app-product',
+    templateUrl: './product.component.html',
+    styleUrls: ['./product.component.css'],
+    standalone: false
 })
 export class ProductComponent implements OnInit {
 
