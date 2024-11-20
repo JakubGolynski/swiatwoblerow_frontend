@@ -6,6 +6,6 @@
     }
   ],
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/swiatwoblerow-frontend/index.html"
   }
 }
