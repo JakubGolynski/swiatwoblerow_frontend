@@ -28,8 +28,8 @@
 
         <form class="mb-5">
           <div class="form-group form-floating mt-3">
-            <input type="text" class="form-control custom-bg" id="floatingInput" placeholder="City..." name="city" [(ngModel)]="productFilter.city" (ngModelChange)="onInputChange()">
-            <label for="floatingInput">City...</label>
+            <input type="text" class="form-control custom-bg" id="floatingInputCity" placeholder="City..." name="city" [(ngModel)]="productFilter.city" (ngModelChange)="onInputChange()">
+            <label for="floatingInputCity">City...</label>
           </div>
         </form>
 
@@ -38,8 +38,8 @@
           <div class="row m-auto mb-5">
             <div class="col-5">
               <div class="form-group form-floating">
-                <input type="text" class="form-control custom-bg" id="floatingInput" placeholder="from" name="priceFrom" [(ngModel)]="productFilter.priceFrom" (ngModelChange)="onInputChange()">
-                <label for="floatingInput">from</label>
+                <input type="text" class="form-control custom-bg" id="floatingInputPriceFrom" placeholder="from" name="priceFrom" [(ngModel)]="productFilter.priceFrom" (ngModelChange)="onInputChange()">
+                <label for="floatingInputPriceFrom">from</label>
               </div>
             </div>
 
@@ -49,23 +49,14 @@
 
             <div class="col-5">
               <div class="form-group form-floating">
-                <input type="text" class="form-control custom-bg" id="floatingInput" placeholder="to" name="priceTo" [(ngModel)]="productFilter.priceTo" (ngModelChange)="onInputChange()">
-                <label for="floatingInput">to</label>
+                <input type="text" class="form-control custom-bg" id="floatingInputPriceTo" placeholder="to" name="priceTo" [(ngModel)]="productFilter.priceTo" (ngModelChange)="onInputChange()">
+                <label for="floatingInputPriceTo">to</label>
               </div>
             </div>
           </div>
         </form>
 
         <form>
-
-          <!-- <div class="form-group form-floating mb-5"> 
-            <select name="conditions" id="floatingSelect" class="form-select custom-bg" [(ngModel)]="productFilter.conditions" (ngModelChange)="onInputChange()">
-              <option disabled selected>- choose -</option>
-              <option value="" *ngFor="let condition of conditions">{{condition.name | titlecase}}</option>
-            </select>
-            <label for="floatingSelect" class="form-label">Condition</label> 
-          
-           </div>  -->
            <label for="" class="form-label">Condition</label>
            <div *ngFor="let condition of conditions">
             <div class="form-check mb-2 ms-3">
@@ -83,8 +74,8 @@
       <div class="row m-5">
         <div class="col-6">
           <form>
-            <label class="form-label">Sorting:</label>
-            <select class="form-select custom-bg" name="sort" [(ngModel)]="productFilter.sort" (ngModelChange)="onInputChange()">
+            <label for="productSelectCondition" class="form-label">Sorting:</label>
+            <select class="form-select custom-bg" name="sort" id="productSelectCondition" [(ngModel)]="productFilter.sort" (ngModelChange)="onInputChange()">
               <option value="name">name: alphabetically</option>
               <option value="price">price: cheapest</option>
               <option value="createdAt">time: newest products</option>
@@ -96,8 +87,8 @@
         <div class="col">
           <form class="mb-5">
             <div class="form-group ">
-              <label class="form-label">Display</label>
-              <input type="text" class="form-control custom-bg" placeholder="20" name="size" [(ngModel)]="productFilter.size" (ngModelChange)="onInputChange()">
+              <label for="displaySize" class="form-label">Display</label>
+              <input type="text" class="form-control custom-bg" placeholder="20" name="size" id="displaySize" [(ngModel)]="productFilter.size" (ngModelChange)="onInputChange()">
             </div>
           </form>
         </div>
