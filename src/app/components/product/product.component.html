@@ -34,7 +34,7 @@
         </form>
 
         <form>
-          <label for="" class="form-label">Price</label>
+          <label class="form-label">Price</label>
           <div class="row m-auto mb-5">
             <div class="col-5">
               <div class="form-group form-floating">
@@ -57,11 +57,11 @@
         </form>
 
         <form>
-           <label for="" class="form-label">Condition</label>
+           <label class="form-label">Condition</label>
            <div *ngFor="let condition of conditions">
             <div class="form-check mb-2 ms-3">
-              <input type="checkbox" class="form-check-input checkbox-lg" value="condition.name" (change)="onConditionChange(condition.name)" id="flexCheckDefault">
-              <label for="flexCheckDefault" class="form-check-label">{{condition.name | titlecase}}</label>
+              <input type="checkbox" class="form-check-input checkbox-lg" value="condition.name" (change)="onConditionChange(condition.name)" >
+              <label class="form-check-label">{{condition.name | titlecase}}</label>
             </div>
            </div>
         </form>
@@ -74,8 +74,8 @@
       <div class="row m-5">
         <div class="col-6">
           <form>
-            <label for="productSelectCondition" class="form-label">Sorting:</label>
-            <select class="form-select custom-bg" name="sort" id="productSelectCondition" [(ngModel)]="productFilter.sort" (ngModelChange)="onInputChange()">
+            <label for="productSorting" class="form-label">Sorting:</label>
+            <select class="form-select custom-bg" name="sort" id="productSorting" [(ngModel)]="productFilter.sort" (ngModelChange)="onInputChange()">
               <option value="name">name: alphabetically</option>
               <option value="price">price: cheapest</option>
               <option value="createdAt">time: newest products</option>
