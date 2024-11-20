@@ -5,7 +5,7 @@
         <h3 class="mb-0 py-5 px-5">Login</h3>
       </div>
       <div class="card-body box p-3 sm:p-3 md:p-5 ">
-        <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="onSubmit()">
             <div class="form-group mb-4 px-4">
                 <label for="username">Username</label>
                 <input type="text" #username="ngModel" required [class.is-invalid]="username.invalid && username.touched" class="form-control"
@@ -13,9 +13,9 @@
                 <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is required</small>
             </div>
             <div class="form-group mb-3 px-4">
-                <label for="username">Password</label>
+                <label for="password">Password</label>
                 <input type="password" #password="ngModel" required [class.is-invalid]="password.invalid && password.touched" class="form-control"
-                name="password" id="username" [(ngModel)]="user.password" placeholder="Password">
+                name="password" id="password" [(ngModel)]="user.password" placeholder="Password">
                 <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
             </div>
              <div class="container">
