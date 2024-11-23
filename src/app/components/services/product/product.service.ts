@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ProductFilter } from '../../models/filter/product-filter.model';
 import { Product } from '../../models/product.model';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/products`; 
+  private _url: string = environment.apiUrl+`/products`; 
 
   getProducts(productFilter: ProductFilter): Observable<Product[]>{
 

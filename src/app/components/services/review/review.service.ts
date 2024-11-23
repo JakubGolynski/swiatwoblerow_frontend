@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Review } from '../../models/review.model';
 import { ReviewFilter } from '../../models/filter/review-filter.model';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class ReviewService {
 
   constructor(private http: HttpClient) { }
 
+  private _url: string = environment.apiUrl;
 
   getReviews(productId: number, reviewFilter: ReviewFilter): Observable<Review[]> {
     let params = new HttpParams();
@@ -22,7 +24,7 @@ export class ReviewService {
       params = params.set(`size`, reviewFilter.size);
     }
 
-    let _url: string = `https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/products/${productId}/reviews`;
+    let _url: string = this._url+`/products/${productId}/reviews`;
 
     return this.http.get<Review[]>(_url,{params});
   }

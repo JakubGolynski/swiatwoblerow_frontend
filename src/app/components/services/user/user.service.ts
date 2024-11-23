@@ -4,13 +4,14 @@ import { catchError, EMPTY, filter, map, Observable, tap, throwError } from 'rxj
 import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private _userDetailUrl: string = `https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/customer/detail`;
+  private _userDetailUrl: string = environment.apiUrl+`/customer/detail`;
 
   constructor(private http: HttpClient,
               private authService: AuthService,

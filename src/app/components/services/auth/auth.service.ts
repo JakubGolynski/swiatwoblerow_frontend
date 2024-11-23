@@ -5,6 +5,7 @@ import { BehaviorSubject, catchError, Observable, Subject, throwError } from 'rx
 import {distinctUntilChanged, map, tap} from 'rxjs/operators';
 import { JwtService } from '../jwt/jwt.service';
 import { User } from '../../models/user.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient,
               private jwtService: JwtService) {}
 
-  private url = "https://backend-serv-d5gugpfwcvf6c7bd.northeurope-01.azurewebsites.net/login";
+  private url = environment.apiUrl+'/login';
 
   private loggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(localStorage.getItem(`jwtToken`) === null ? false : true);
 
